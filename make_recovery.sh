@@ -27,6 +27,9 @@ cp -r ../recovery/root/sbin recovery.img-ramdisk
 cp -r ../recovery/root/res/images recovery.img-ramdisk/res/images
 cp ../recovery/root/etc/recovery.fstab recovery.img-ramdisk/etc/recovery.fstab
 
+ln -sf recovery.img-ramdisk/init recovery.img-ramdisk/sbin/ueventd
+ln -sf recovery.img-ramdisk/init recovery.img-ramdisk/sbin/watchdogd
+
 # Build MTK recovery image
 cd ../../../../..
 out/target/product/hongmi/mtk-tools/repack-MT65xx.pl -recovery out/target/product/hongmi/mtk-tools/recovery.img-kernel.img out/target/product/hongmi/mtk-tools/recovery.img-ramdisk out/target/product/hongmi/CWM_recovery_Hongmi.img
